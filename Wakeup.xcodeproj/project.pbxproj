@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2794D5FF18584975003FA866 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2794D5FE18584975003FA866 /* StartViewController.m */; };
+		2794D60618585302003FA866 /* WeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2794D60518585302003FA866 /* WeatherView.m */; };
+		2794D60918585E4D003FA866 /* UIScreenEx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2794D60818585E4D003FA866 /* UIScreenEx.mm */; };
+		2794D60C185872D5003FA866 /* RNTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2794D60B185872D5003FA866 /* RNTimer.m */; };
+		2794D61418588578003FA866 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2794D61318588578003FA866 /* CoreLocation.framework */; };
+		2794D617185885EB003FA866 /* LbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2794D616185885EB003FA866 /* LbsViewController.m */; };
 		94483375185449F300584592 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94483374185449F300584592 /* Foundation.framework */; };
 		94483377185449F300584592 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94483376185449F300584592 /* CoreGraphics.framework */; };
 		94483379185449F300584592 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94483378185449F300584592 /* UIKit.framework */; };
 		9448337F185449F300584592 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9448337D185449F300584592 /* InfoPlist.strings */; };
 		94483381185449F300584592 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94483380185449F300584592 /* main.m */; };
 		94483385185449F300584592 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94483384185449F300584592 /* AppDelegate.m */; };
-		94483388185449F300584592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94483386185449F300584592 /* Main.storyboard */; };
-		9448338B185449F300584592 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9448338A185449F300584592 /* ViewController.m */; };
 		9448338D185449F300584592 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9448338C185449F300584592 /* Images.xcassets */; };
 		94483394185449F300584592 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94483393185449F300584592 /* XCTest.framework */; };
 		94483395185449F300584592 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94483374185449F300584592 /* Foundation.framework */; };
@@ -36,6 +40,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2794D5FD18584975003FA866 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		2794D5FE18584975003FA866 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		2794D60418585302003FA866 /* WeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherView.h; sourceTree = "<group>"; };
+		2794D60518585302003FA866 /* WeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherView.m; sourceTree = "<group>"; };
+		2794D60718585E4D003FA866 /* UIScreenEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScreenEx.h; sourceTree = "<group>"; };
+		2794D60818585E4D003FA866 /* UIScreenEx.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIScreenEx.mm; sourceTree = "<group>"; };
+		2794D60A185872D1003FA866 /* RNTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNTimer.h; sourceTree = "<group>"; };
+		2794D60B185872D5003FA866 /* RNTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNTimer.m; sourceTree = "<group>"; };
+		2794D61318588578003FA866 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2794D615185885EB003FA866 /* LbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LbsViewController.h; sourceTree = "<group>"; };
+		2794D616185885EB003FA866 /* LbsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LbsViewController.m; sourceTree = "<group>"; };
 		94483371185449F300584592 /* Wakeup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wakeup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94483374185449F300584592 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94483376185449F300584592 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -46,9 +61,6 @@
 		94483382185449F300584592 /* Wakeup-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wakeup-Prefix.pch"; sourceTree = "<group>"; };
 		94483383185449F300584592 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		94483384185449F300584592 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		94483387185449F300584592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		94483389185449F300584592 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9448338A185449F300584592 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9448338C185449F300584592 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		94483392185449F300584592 /* WakeupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakeupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94483393185449F300584592 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -66,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2794D61418588578003FA866 /* CoreLocation.framework in Frameworks */,
 				94483377185449F300584592 /* CoreGraphics.framework in Frameworks */,
 				94483379185449F300584592 /* UIKit.framework in Frameworks */,
 				94483375185449F300584592 /* Foundation.framework in Frameworks */,
@@ -85,6 +98,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2794D60018584ADE003FA866 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2794D60418585302003FA866 /* WeatherView.h */,
+				2794D60518585302003FA866 /* WeatherView.m */,
+				2794D60718585E4D003FA866 /* UIScreenEx.h */,
+				2794D60818585E4D003FA866 /* UIScreenEx.mm */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		94483368185449F300584592 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +131,7 @@
 		94483373185449F300584592 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2794D61318588578003FA866 /* CoreLocation.framework */,
 				94483374185449F300584592 /* Foundation.framework */,
 				94483376185449F300584592 /* CoreGraphics.framework */,
 				94483378185449F300584592 /* UIKit.framework */,
@@ -118,13 +143,13 @@
 		9448337A185449F300584592 /* Wakeup */ = {
 			isa = PBXGroup;
 			children = (
+				2794D60018584ADE003FA866 /* UI */,
 				944833BD18544E8A00584592 /* Model */,
 				944833B818544D4D00584592 /* Libs */,
 				944833AA18544C7300584592 /* Utilities */,
 				944833A918544C5100584592 /* ViewController */,
 				94483383185449F300584592 /* AppDelegate.h */,
 				94483384185449F300584592 /* AppDelegate.m */,
-				94483386185449F300584592 /* Main.storyboard */,
 				9448338C185449F300584592 /* Images.xcassets */,
 				9448337B185449F300584592 /* Supporting Files */,
 			);
@@ -163,8 +188,10 @@
 		944833A918544C5100584592 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				94483389185449F300584592 /* ViewController.h */,
-				9448338A185449F300584592 /* ViewController.m */,
+				2794D5FD18584975003FA866 /* StartViewController.h */,
+				2794D5FE18584975003FA866 /* StartViewController.m */,
+				2794D615185885EB003FA866 /* LbsViewController.h */,
+				2794D616185885EB003FA866 /* LbsViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -183,6 +210,8 @@
 		944833B818544D4D00584592 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				2794D60A185872D1003FA866 /* RNTimer.h */,
+				2794D60B185872D5003FA866 /* RNTimer.m */,
 			);
 			name = Libs;
 			sourceTree = "<group>";
@@ -272,7 +301,6 @@
 			files = (
 				9448338D185449F300584592 /* Images.xcassets in Resources */,
 				9448337F185449F300584592 /* InfoPlist.strings in Resources */,
-				94483388185449F300584592 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,10 +320,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				944833B418544CDE00584592 /* Config.m in Sources */,
-				9448338B185449F300584592 /* ViewController.m in Sources */,
+				2794D60618585302003FA866 /* WeatherView.m in Sources */,
 				944833AF18544CC800584592 /* NSString+ForJava.m in Sources */,
+				2794D5FF18584975003FA866 /* StartViewController.m in Sources */,
 				94483385185449F300584592 /* AppDelegate.m in Sources */,
+				2794D617185885EB003FA866 /* LbsViewController.m in Sources */,
+				2794D60C185872D5003FA866 /* RNTimer.m in Sources */,
 				94483381185449F300584592 /* main.m in Sources */,
+				2794D60918585E4D003FA866 /* UIScreenEx.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,14 +356,6 @@
 				9448337E185449F300584592 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		94483386185449F300584592 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				94483387185449F300584592 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		9448339C185449F300584592 /* InfoPlist.strings */ = {
@@ -506,6 +530,7 @@
 				944833A5185449F300584592 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		944833A6185449F300584592 /* Build configuration list for PBXNativeTarget "WakeupTests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +539,7 @@
 				944833A8185449F300584592 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
