@@ -44,16 +44,14 @@
                 [label setLineBreakMode:NSLineBreakByWordWrapping];
             }
         }
-        [_cityLabel setFont:[UIFont fontWithName:@"Arial" size:30]];
-        [_weatherLabel setFont:[UIFont fontWithName:@"Arial" size:26]];
+        [_cityLabel setFont:[UIFont fontWithName:@"Arial" size:20]];
+        [_weatherLabel setFont:[UIFont fontWithName:@"Arial" size:20]];
         
         _cityLabel.text = @"Beijing";
         _weatherLabel.text = @"多云转晴";
     }
     return self;
 }
-
-#pragma mark WeatherChangedDelegate
 
 - (void)cityDidChanged:(NSString *)city {
     [self.cityLabel setText:city];

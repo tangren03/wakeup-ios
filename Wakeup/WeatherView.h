@@ -8,18 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol WeatherChangedDelegate <NSObject>
-
-- (void)cityDidChanged:(NSString *)city;
-- (void)weatherDidChanged:(NSString *)weather;
-
-@end
-
-
-@interface WeatherView : UIView <WeatherChangedDelegate>
+@interface WeatherView : UIView
 
 @property (nonatomic, strong) UILabel *cityLabel;
 @property (nonatomic, strong) UILabel *weatherLabel;
 @property (nonatomic, strong) UIImageView *weatherImageView;
+
+- (void)cityDidChanged:(NSString *)city;
+- (void)weatherDidChanged:(NSString *)weather;
 
 @end

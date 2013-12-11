@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class WeatherView;
 
-@interface StartViewController : UIViewController
+@interface StartViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) WeatherView *weatherView;
 @property (nonatomic, strong) UIImageView *bgImageView;
