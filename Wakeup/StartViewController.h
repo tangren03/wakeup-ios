@@ -2,7 +2,7 @@
 //  StartViewController.h
 //  Wakeup
 //
-//  Created by frost on 13-12-11.
+//  Created by shin on 13-12-11.
 //  Copyright (c) 2013年 EricssonLabs. All rights reserved.
 //
 
