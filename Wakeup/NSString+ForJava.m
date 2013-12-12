@@ -68,4 +68,9 @@
     return [self substringWithRange:range];
 }
 
+// 是否包含子串
+- (BOOL)contain:(NSString *)subString {
+    return [self rangeOfString:subString].length > 0;
+}
+
 @end
