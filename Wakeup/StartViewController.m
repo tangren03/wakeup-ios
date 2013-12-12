@@ -52,7 +52,8 @@
     _addClockButton = [[UIButton alloc] initWithFrame:
                        CGRectMake(80,
                                   _timeLabel.frame.origin.y + _timeLabel.frame.size.height + 20,
-                                  160, 100)];
+                                  160,
+                                  100)];
     
     [_addClockButton setBackgroundImage:[UIImage imageNamed:@"addnew.png"]
                                forState:UIControlStateNormal];
