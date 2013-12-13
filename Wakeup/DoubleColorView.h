@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DoubleColorView : UIScrollView
+@class SwipeButton;
+
+@interface DoubleColorView : UIView
 
 @property (nonatomic, strong) UIButton *closeButton;
-@property (nonatomic, strong) UIButton *modifyButton;
-@property (nonatomic, strong) UILabel *leftNotifyLabel;
+@property (nonatomic, strong) SwipeButton *modifyButton;
+@property (nonatomic, strong) UIImageView *leftNotifyImageView;
 
 @end

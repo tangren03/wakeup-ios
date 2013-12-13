@@ -12,6 +12,7 @@
 // self proj
 #import "CityManager.h"
 #import "Config.h"
+#import "DoubleColorView.h"
 #import "WeatherView.h"
 
 // thirdparty
@@ -19,7 +20,7 @@
 #import "RNTimer.h"
 #import "SBJsonParser.h"
 
-#define WEATHER_VIEW_TOP_MARGIN  50
+#define WEATHER_VIEW_TOP_MARGIN  30
 
 @interface StartViewController ()
 @property (readwrite, strong) RNTimer *timer;
@@ -64,11 +65,18 @@
 
     _bgImageView = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _bgImageView.image = [UIImage imageNamed:@"bg_blue.png"];
+    
+    float doubleColorViewY = _addClockButton.frame.origin.y + _addClockButton.frame.size.height + 30;
+    _doubleColorView = [[DoubleColorView alloc] initWithFrame:CGRectMake(0,
+                                                                         doubleColorViewY,
+                                                                         appFrame.size.width,
+                                                                         60)];
 
     [self.view addSubview:_bgImageView];
     [self.view addSubview:_weatherView];
     [self.view addSubview:_timeLabel];
     [self.view addSubview:_addClockButton];
+    [self.view addSubview:_doubleColorView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
