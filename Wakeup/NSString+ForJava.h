@@ -36,4 +36,7 @@
 //从指定的开始位置和结束位置开始截取字符串
 - (NSString *) substringFromIndex:(int)begin toIndex:(int)end;
 
+//是否包含子串
+- (BOOL)contain:(NSString *)subString;
+
 @end

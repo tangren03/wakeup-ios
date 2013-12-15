@@ -32,9 +32,10 @@
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
-	<key>UISupportedInterfaceOrientations</key>
+	<key>UIAppFonts</key>
 	<array>
-		<string>UIInterfaceOrientationPortrait</string>
+		<string>Roboto-Thin.ttf</string>
+		<string> 造字工房悦黑细体.otf</string>
 	</array>
 </dict>
 </plist>
