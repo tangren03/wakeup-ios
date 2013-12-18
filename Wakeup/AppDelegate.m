@@ -17,9 +17,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     StartViewController *startViewController = [[StartViewController alloc] init];
     
-    self.navController = [[UINavigationController alloc] initWithRootViewController:startViewController];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:startViewController];
     
-    [self.window addSubview: self.navController.view];
+//    [self.window addSubview: self.navController.view];
+    self.window.rootViewController = startViewController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
@@ -52,5 +53,6 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 @end

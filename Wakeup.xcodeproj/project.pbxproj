@@ -38,6 +38,10 @@
 		2794D6201859AFDA003FA866 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2794D61F1859AFDA003FA866 /* Roboto-Thin.ttf */; };
 		2794D6341859D519003FA866 /* DoubleColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2794D6331859D519003FA866 /* DoubleColorView.m */; };
 		2794D63A185B1A6F003FA866 /* SwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2794D639185B1A6F003FA866 /* SwipeButton.m */; };
+		940053881861D4CD00940BBB /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 940053871861D4CD00940BBB /* SettingViewController.m */; };
+		9400538B1861D8BA00940BBB /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9400538A1861D8BA00940BBB /* BaseViewController.m */; };
+		9400538E1861E07400940BBB /* ShakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9400538D1861E07400940BBB /* ShakeViewController.m */; };
+		940053911861E17600940BBB /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 940053901861E17600940BBB /* Utils.m */; };
 		94483375185449F300584592 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94483374185449F300584592 /* Foundation.framework */; };
 		94483377185449F300584592 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94483376185449F300584592 /* CoreGraphics.framework */; };
 		94483379185449F300584592 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94483378185449F300584592 /* UIKit.framework */; };
@@ -125,6 +129,14 @@
 		2794D6331859D519003FA866 /* DoubleColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleColorView.m; sourceTree = "<group>"; };
 		2794D638185B1A6F003FA866 /* SwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeButton.h; sourceTree = "<group>"; };
 		2794D639185B1A6F003FA866 /* SwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeButton.m; sourceTree = "<group>"; };
+		940053861861D4CD00940BBB /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		940053871861D4CD00940BBB /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		940053891861D8BA00940BBB /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		9400538A1861D8BA00940BBB /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		9400538C1861E07400940BBB /* ShakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeViewController.h; sourceTree = "<group>"; };
+		9400538D1861E07400940BBB /* ShakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeViewController.m; sourceTree = "<group>"; };
+		9400538F1861E17600940BBB /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		940053901861E17600940BBB /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		94483371185449F300584592 /* Wakeup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wakeup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94483374185449F300584592 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94483376185449F300584592 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -334,8 +346,14 @@
 		944833A918544C5100584592 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				940053891861D8BA00940BBB /* BaseViewController.h */,
+				9400538A1861D8BA00940BBB /* BaseViewController.m */,
 				2794D5FD18584975003FA866 /* StartViewController.h */,
 				2794D5FE18584975003FA866 /* StartViewController.m */,
+				940053861861D4CD00940BBB /* SettingViewController.h */,
+				940053871861D4CD00940BBB /* SettingViewController.m */,
+				9400538C1861E07400940BBB /* ShakeViewController.h */,
+				9400538D1861E07400940BBB /* ShakeViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -347,6 +365,8 @@
 				944833B318544CDE00584592 /* Config.m */,
 				944833AD18544CC800584592 /* NSString+ForJava.h */,
 				944833AE18544CC800584592 /* NSString+ForJava.m */,
+				9400538F1861E17600940BBB /* Utils.h */,
+				940053901861E17600940BBB /* Utils.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -475,8 +495,11 @@
 				13F809BE1858C989008C9080 /* SBJsonParser.m in Sources */,
 				13F809A51858C158008C9080 /* ASIDataCompressor.m in Sources */,
 				944833B418544CDE00584592 /* Config.m in Sources */,
+				940053911861E17600940BBB /* Utils.m in Sources */,
 				13F809BA1858C989008C9080 /* NSObject+SBJSON.m in Sources */,
 				13F809A81858C158008C9080 /* ASIFormDataRequest.m in Sources */,
+				9400538B1861D8BA00940BBB /* BaseViewController.m in Sources */,
+				940053881861D4CD00940BBB /* SettingViewController.m in Sources */,
 				13F809A71858C158008C9080 /* ASIDownloadCache.m in Sources */,
 				2794D60618585302003FA866 /* WeatherView.m in Sources */,
 				944833AF18544CC800584592 /* NSString+ForJava.m in Sources */,
@@ -494,6 +517,7 @@
 				13F809AA1858C158008C9080 /* ASIInputStream.m in Sources */,
 				13F809C31858CD67008C9080 /* Reachability.m in Sources */,
 				13F809BC1858C989008C9080 /* SBJSON.m in Sources */,
+				9400538E1861E07400940BBB /* ShakeViewController.m in Sources */,
 				13F809A91858C158008C9080 /* ASIHTTPRequest.m in Sources */,
 				13F809BD1858C989008C9080 /* SBJsonBase.m in Sources */,
 				94483381185449F300584592 /* main.m in Sources */,

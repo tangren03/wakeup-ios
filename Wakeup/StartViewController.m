@@ -14,6 +14,7 @@
 #import "Config.h"
 #import "DoubleColorView.h"
 #import "WeatherView.h"
+#import "SettingViewController.h"
 
 // thirdparty
 #import "ASIHTTPRequest.h"
@@ -121,7 +122,8 @@
 }
 
 - (IBAction)addClock {
-
+    SettingViewController *settingViewCtrl = [[SettingViewController alloc] init];
+    [self presentViewController:settingViewCtrl animated:YES completion:nil];
 }
 
 // Reference:

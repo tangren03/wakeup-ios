@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+#import "BaseViewController.h"
+
 @class WeatherView;
 @class DoubleColorView;
 
-@interface StartViewController : UIViewController <CLLocationManagerDelegate>
+@interface StartViewController : BaseViewController <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) UIImageView *bgImageView;
 @property (nonatomic, strong) WeatherView *weatherView;
