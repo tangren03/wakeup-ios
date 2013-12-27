@@ -40,4 +40,9 @@
     return YES;
 }
 
+-(void)addView:(UIView *) view
+{
+    [self.view addSubview:view];
+}
+
 @end

@@ -13,4 +13,5 @@
 
 @interface ShareViewController : BaseViewController
 
+@property(nonatomic,strong) UILabel *timeCountLabel;
 @end

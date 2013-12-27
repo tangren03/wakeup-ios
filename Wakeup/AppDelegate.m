@@ -35,10 +35,11 @@
 {
     if([resp isKindOfClass:[SendMessageToWXResp class]])
     {
-        NSString *strTitle = [NSString stringWithFormat:@"发送媒体消息结果"];
-        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        NSString *strMsg;
+        if (resp.errCode == 0) {
+            strMsg = @"恭喜，发送成功！";
+        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
 }
