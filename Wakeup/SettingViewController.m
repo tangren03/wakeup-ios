@@ -83,8 +83,11 @@
     //complete clock setting
     
     //TODO test shake UI
-    ShakeViewController *shakeViewCtrl = [[ShakeViewController alloc] init];
-    [self presentViewController:shakeViewCtrl animated:YES completion:nil];
+//    ShakeViewController *shakeViewCtrl = [[ShakeViewController alloc] init];
+//    [self presentViewController:shakeViewCtrl animated:YES completion:nil];
+    
+    ShareViewController *share = [[ShareViewController alloc] init];
+    [self presentViewController:share animated:YES completion:nil];
     
 //    [self dismissViewControllerAnimated:YES completion:nil];
 }

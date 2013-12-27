@@ -124,6 +124,8 @@
 - (IBAction)addClock {
     SettingViewController *settingViewCtrl = [[SettingViewController alloc] init];
     [self presentViewController:settingViewCtrl animated:YES completion:nil];
+    
+    
 }
 
 // Reference:

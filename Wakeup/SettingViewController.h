@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "ShareViewController.h"
 
 @interface SettingViewController : BaseViewController
 

@@ -56,6 +56,8 @@
 		944833A0185449F300584592 /* WakeupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9448339F185449F300584592 /* WakeupTests.m */; };
 		944833AF18544CC800584592 /* NSString+ForJava.m in Sources */ = {isa = PBXBuildFile; fileRef = 944833AE18544CC800584592 /* NSString+ForJava.m */; };
 		944833B418544CDE00584592 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 944833B318544CDE00584592 /* Config.m */; };
+		9489F9F3186C6A77002ED639 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9489F9F0186C6A77002ED639 /* libWeChatSDK.a */; };
+		9489F9F6186D0AAC002ED639 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9489F9F5186D0AAC002ED639 /* ShareViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +159,11 @@
 		944833AE18544CC800584592 /* NSString+ForJava.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ForJava.m"; sourceTree = "<group>"; };
 		944833B218544CDE00584592 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		944833B318544CDE00584592 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
+		9489F9F0186C6A77002ED639 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		9489F9F1186C6A77002ED639 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		9489F9F2186C6A77002ED639 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		9489F9F4186D0AAC002ED639 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		9489F9F5186D0AAC002ED639 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +173,7 @@
 			files = (
 				13F809CC1858CF19008C9080 /* libz.dylib in Frameworks */,
 				13F809CA1858CF11008C9080 /* MobileCoreServices.framework in Frameworks */,
+				9489F9F3186C6A77002ED639 /* libWeChatSDK.a in Frameworks */,
 				13F809C81858CF09008C9080 /* SystemConfiguration.framework in Frameworks */,
 				13F809C51858CE18008C9080 /* CFNetwork.framework in Frameworks */,
 				2794D61418588578003FA866 /* CoreLocation.framework in Frameworks */,
@@ -354,6 +362,8 @@
 				940053871861D4CD00940BBB /* SettingViewController.m */,
 				9400538C1861E07400940BBB /* ShakeViewController.h */,
 				9400538D1861E07400940BBB /* ShakeViewController.m */,
+				9489F9F4186D0AAC002ED639 /* ShareViewController.h */,
+				9489F9F5186D0AAC002ED639 /* ShareViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -374,6 +384,7 @@
 		944833B818544D4D00584592 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				9489F9EF186C6A62002ED639 /* WeChat */,
 				13F809C01858CD67008C9080 /* Reachability */,
 				13F809AC1858C989008C9080 /* JSON-Kit */,
 				13F8098F1858C158008C9080 /* ASIHTTPRequest  */,
@@ -390,6 +401,16 @@
 				2794D619185966D6003FA866 /* CityManager.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		9489F9EF186C6A62002ED639 /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				9489F9F0186C6A77002ED639 /* libWeChatSDK.a */,
+				9489F9F1186C6A77002ED639 /* WXApi.h */,
+				9489F9F2186C6A77002ED639 /* WXApiObject.h */,
+			);
+			name = WeChat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,6 +460,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = EricssonLabs;
 				TargetAttributes = {
+					94483370185449F300584592 = {
+						DevelopmentTeam = 9H3V4G768E;
+					};
 					94483391185449F300584592 = {
 						TestTargetID = 94483370185449F300584592;
 					};
@@ -510,6 +534,7 @@
 				13F809BB1858C989008C9080 /* NSString+SBJSON.m in Sources */,
 				2794D61A185966D6003FA866 /* CityManager.m in Sources */,
 				2794D6341859D519003FA866 /* DoubleColorView.m in Sources */,
+				9489F9F6186D0AAC002ED639 /* ShareViewController.m in Sources */,
 				94483385185449F300584592 /* AppDelegate.m in Sources */,
 				13F809BF1858C989008C9080 /* SBJsonWriter.m in Sources */,
 				2794D60C185872D5003FA866 /* RNTimer.m in Sources */,
@@ -643,12 +668,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 成 季 (4E7W6EDWNR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wakeup/Wakeup-Prefix.pch";
 				INFOPLIST_FILE = "Wakeup/Wakeup-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Ryan/Desktop/Wakeup/wakeup-ios/Wakeup",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B1019208-4971-40B1-A0D0-AD6FD5A7E248";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -658,12 +688,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 成 季 (4E7W6EDWNR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wakeup/Wakeup-Prefix.pch";
 				INFOPLIST_FILE = "Wakeup/Wakeup-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Ryan/Desktop/Wakeup/wakeup-ios/Wakeup",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B1019208-4971-40B1-A0D0-AD6FD5A7E248";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
