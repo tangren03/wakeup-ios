@@ -42,6 +42,7 @@
 		9400538B1861D8BA00940BBB /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9400538A1861D8BA00940BBB /* BaseViewController.m */; };
 		9400538E1861E07400940BBB /* ShakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9400538D1861E07400940BBB /* ShakeViewController.m */; };
 		940053911861E17600940BBB /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 940053901861E17600940BBB /* Utils.m */; };
+		94182ED8187164B500FFE0D3 /* AFPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94182ED1187164B500FFE0D3 /* AFPickerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		94483375185449F300584592 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94483374185449F300584592 /* Foundation.framework */; };
 		94483377185449F300584592 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94483376185449F300584592 /* CoreGraphics.framework */; };
 		94483379185449F300584592 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94483378185449F300584592 /* UIKit.framework */; };
@@ -139,6 +140,8 @@
 		9400538D1861E07400940BBB /* ShakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeViewController.m; sourceTree = "<group>"; };
 		9400538F1861E17600940BBB /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		940053901861E17600940BBB /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		94182ED0187164B500FFE0D3 /* AFPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPickerView.h; sourceTree = "<group>"; };
+		94182ED1187164B500FFE0D3 /* AFPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPickerView.m; sourceTree = "<group>"; };
 		94483371185449F300584592 /* Wakeup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wakeup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94483374185449F300584592 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94483376185449F300584592 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -267,6 +270,15 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		94182ECF187164B500FFE0D3 /* AFPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				94182ED0187164B500FFE0D3 /* AFPickerView.h */,
+				94182ED1187164B500FFE0D3 /* AFPickerView.m */,
+			);
+			path = AFPickerView;
+			sourceTree = "<group>";
+		};
 		94483368185449F300584592 = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +396,7 @@
 		944833B818544D4D00584592 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				94182ECF187164B500FFE0D3 /* AFPickerView */,
 				9489F9EF186C6A62002ED639 /* WeChat */,
 				13F809C01858CD67008C9080 /* Reachability */,
 				13F809AC1858C989008C9080 /* JSON-Kit */,
@@ -525,6 +538,7 @@
 				9400538B1861D8BA00940BBB /* BaseViewController.m in Sources */,
 				940053881861D4CD00940BBB /* SettingViewController.m in Sources */,
 				13F809A71858C158008C9080 /* ASIDownloadCache.m in Sources */,
+				94182ED8187164B500FFE0D3 /* AFPickerView.m in Sources */,
 				2794D60618585302003FA866 /* WeatherView.m in Sources */,
 				944833AF18544CC800584592 /* NSString+ForJava.m in Sources */,
 				2794D63A185B1A6F003FA866 /* SwipeButton.m in Sources */,

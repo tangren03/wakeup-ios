@@ -10,7 +10,9 @@
 #import "BaseViewController.h"
 #import "ShareViewController.h"
 
-@interface SettingViewController : BaseViewController
+@interface SettingViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>{
+    
+}
 
 @property(nonatomic,strong) UIButton * btnBack;
 @property(nonatomic,strong) UIButton * btnYES;

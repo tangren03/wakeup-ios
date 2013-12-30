@@ -15,7 +15,14 @@
     #import <Foundation/Foundation.h>
 #endif
 
+#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
 //If current device is iphone5
 #define iphone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 
 #define MAIN_COLOR @"#2dd9f2"
+#define YELLOW_COLOR @"#fde756"
+
+#define PRO_MUSIC @"PRO_MUSIC"
+#define PRO_SHAKE @"PRO_SHAKE"
