@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 #import "ShareViewController.h"
+#import "IZValueSelectorView.h"
 
-@interface SettingViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>{
+@interface SettingViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,IZValueSelectorViewDataSource,IZValueSelectorViewDelegate>{
     
 }
 

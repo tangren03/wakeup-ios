@@ -10,12 +10,13 @@
 #import "ShakeViewController.h"
 #import "Utils.h"
 #import "Config.h"
+#import "AMBlurView.h"
 
 @interface SettingViewController ()
 {
     UIView *primaryView;
     UIView *hiddenView;
-    UIView *shadeView;
+    AMBlurView *shadeView;
     
     UILabel *lbLayerTitle;
     UITableView *choiceTableView;
@@ -23,29 +24,50 @@
     NSArray *shakeArray;
     
     BOOL IS_MUSIC_ITEM;
+    
+    NSArray *hourArray;
+    NSMutableArray *minArray;
+    
+    IZValueSelectorView *hourPicker;
+    IZValueSelectorView *minPicker;
 }
 @end
 
 @implementation SettingViewController
 
+-(id)init
+{
+    self = [super init];
+    if (self) {
+        IS_MUSIC_ITEM = YES;
+        
+        musicArray = @[@"震动",@"经典铃声",@"舒缓音乐"];
+        shakeArray = @[@"容易",@"中等",@"困难"];
+        hourArray = @[@"05",@"06",@"07",@"08",@"09"];
+        minArray = [NSMutableArray array];
+        for (int i = 0; i < 60; i ++) {
+            if (i < 10) {
+                [minArray addObject:[@"0" stringByAppendingFormat:@"%d",i]];
+            }else{
+                [minArray addObject:[NSString stringWithFormat:@"%d",i]];
+            }
+        }
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    IS_MUSIC_ITEM = YES;
-    
-    musicArray = @[@"震动",@"经典铃声",@"舒缓音乐"];
-    shakeArray = @[@"容易",@"中等",@"困难"];
-    
-    self.view.backgroundColor = [Utils colorWithHexString:MAIN_COLOR];
+    self.view.backgroundColor = [UIColor lightGrayColor];
     
     //background image
     primaryView = [[UIView alloc] initWithFrame:self.view.frame];
     primaryView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_purple_iph5"]];
     [self.view addSubview:primaryView];
-    shadeView = [[UIView alloc] initWithFrame:primaryView.frame];
-    shadeView.backgroundColor = [UIColor whiteColor];
-    shadeView.alpha = 0.5;
+    shadeView = [[AMBlurView alloc] initWithFrame:primaryView.frame];
+    shadeView.alpha = 0.8;
     shadeView.hidden = YES;
     [self.view addSubview:shadeView];
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeItemLayer)];
@@ -84,6 +106,24 @@
     
     
     //time picker view
+    hourPicker = [[IZValueSelectorView alloc] initWithFrame:CGRectMake(35, 75, 120, 200)];
+    hourPicker.delegate = self;
+    hourPicker.dataSource = self;
+    hourPicker.shouldBeTransparent = YES;
+    hourPicker.horizontalScrolling = NO;
+    hourPicker.backgroundColor = [Utils colorWithHexString:MAIN_COLOR];
+    [primaryView addSubview:hourPicker];
+    
+    minPicker = [[IZValueSelectorView alloc] initWithFrame:CGRectMake(viewSize.width - 155, 75, 120, 200)];
+    minPicker.delegate = self;
+    minPicker.dataSource = self;
+    minPicker.shouldBeTransparent = YES;
+    minPicker.horizontalScrolling = NO;
+    minPicker.backgroundColor = [Utils colorWithHexString:MAIN_COLOR];//@"#fde756"
+    [primaryView addSubview:minPicker];
+    
+    
+    //clock repeat setting
     
     
     
@@ -148,12 +188,74 @@
     [self openItemLayer:[@"摇力等级：" stringByAppendingString:shake]];
 }
 
+#pragma IZValueSelector dataSource
+- (NSInteger)numberOfRowsInSelector:(IZValueSelectorView *)valueSelector {
+    if (valueSelector == hourPicker) {
+        return hourArray.count;
+    }else{
+        return minArray.count;
+    }
+}
+
+//ONLY ONE OF THESE WILL GET CALLED (DEPENDING ON the horizontalScrolling property Value)
+- (CGFloat)rowHeightInSelector:(IZValueSelectorView *)valueSelector {
+    return 70.0;
+}
+
+- (CGFloat)rowWidthInSelector:(IZValueSelectorView *)valueSelector {
+    return 70.0;
+}
+
+
+- (UIView *)selector:(IZValueSelectorView *)valueSelector viewForRowAtIndex:(NSInteger)index {
+    UILabel * label = nil;
+    NSString *value;
+    if (valueSelector == hourPicker) {
+        label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, hourPicker.frame.size.width, 70)];
+        value = [hourArray objectAtIndex:index];
+    }
+    else {
+        label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, minPicker.frame.size.width, 70)];
+        value = [minArray objectAtIndex:index];
+    }
+    label.text = value;
+    label.textAlignment =  NSTextAlignmentCenter;
+//    label.textColor = [Utils colorWithHexString:@"#c5c5c5"];
+    label.textColor = [UIColor whiteColor];
+    label.backgroundColor = [Utils colorWithHexString:MAIN_COLOR];
+    label.font = [UIFont boldSystemFontOfSize:55.0];
+    
+    return label;
+}
+
+- (CGRect)rectForSelectionInSelector:(IZValueSelectorView *)valueSelector {
+    //Just return a rect in which you want the selector image to appear
+    //Use the IZValueSelector coordinates
+    //Basically the x will be 0
+    //y will be the origin of your image
+    //width and height will be the same as in your selector image
+    
+    return CGRectMake(0.0, minPicker.frame.size.height/2 - 35.0, 120.0, 70.0);
+    
+}
+
+#pragma IZValueSelector delegate
+- (void)selector:(IZValueSelectorView *)valueSelector didSelectRowAtIndex:(NSInteger)index {
+    if (valueSelector == hourPicker) {
+        NSLog(@"hour:%@",[hourArray objectAtIndex:index]);
+    }else{
+        NSLog(@"min:%@",[minArray objectAtIndex:index]);
+    }
+    
+}
+
+#pragma mark - Layer operation
 -(void)openItemLayer:(NSString *)title
 {
     //选项弹出层
     hiddenView = [[UIView alloc] initWithFrame:CGRectMake(0, primaryView.frame.size.height, primaryView.frame.size.width, 160)];
     hiddenView.backgroundColor = [UIColor blackColor];
-    hiddenView.alpha = 0.9;
+    hiddenView.alpha = 0.85;
     [self.view addSubview:hiddenView];
     
     //标题
