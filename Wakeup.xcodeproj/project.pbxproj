@@ -44,6 +44,11 @@
 		940053911861E17600940BBB /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 940053901861E17600940BBB /* Utils.m */; };
 		940535221871CCA2008317B3 /* AMBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 940535211871CCA2008317B3 /* AMBlurView.m */; };
 		9405352718727652008317B3 /* IZValueSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9405352618727652008317B3 /* IZValueSelectorView.m */; };
+		9421FEB7187A547800260FA8 /* CPMotionRecognizingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9421FEB4187A547800260FA8 /* CPMotionRecognizingWindow.m */; };
+		9421FEB8187A547800260FA8 /* UIResponder+MotionRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9421FEB6187A547800260FA8 /* UIResponder+MotionRecognizers.m */; };
+		9421FEBE187A7FAA00260FA8 /* KDGoalBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9421FEBB187A7FAA00260FA8 /* KDGoalBar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9421FEBF187A7FAA00260FA8 /* KDGoalBarPercentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9421FEBD187A7FAA00260FA8 /* KDGoalBarPercentLayer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9421FEC1187A906400260FA8 /* music.aac in Resources */ = {isa = PBXBuildFile; fileRef = 9421FEC0187A906400260FA8 /* music.aac */; };
 		94483375185449F300584592 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94483374185449F300584592 /* Foundation.framework */; };
 		94483377185449F300584592 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94483376185449F300584592 /* CoreGraphics.framework */; };
 		94483379185449F300584592 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94483378185449F300584592 /* UIKit.framework */; };
@@ -145,6 +150,15 @@
 		940535211871CCA2008317B3 /* AMBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMBlurView.m; sourceTree = "<group>"; };
 		9405352518727652008317B3 /* IZValueSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IZValueSelectorView.h; sourceTree = "<group>"; };
 		9405352618727652008317B3 /* IZValueSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IZValueSelectorView.m; sourceTree = "<group>"; };
+		9421FEB3187A547800260FA8 /* CPMotionRecognizingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPMotionRecognizingWindow.h; sourceTree = "<group>"; };
+		9421FEB4187A547800260FA8 /* CPMotionRecognizingWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPMotionRecognizingWindow.m; sourceTree = "<group>"; };
+		9421FEB5187A547800260FA8 /* UIResponder+MotionRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+MotionRecognizers.h"; sourceTree = "<group>"; };
+		9421FEB6187A547800260FA8 /* UIResponder+MotionRecognizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+MotionRecognizers.m"; sourceTree = "<group>"; };
+		9421FEBA187A7FAA00260FA8 /* KDGoalBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGoalBar.h; sourceTree = "<group>"; };
+		9421FEBB187A7FAA00260FA8 /* KDGoalBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGoalBar.m; sourceTree = "<group>"; };
+		9421FEBC187A7FAA00260FA8 /* KDGoalBarPercentLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDGoalBarPercentLayer.h; sourceTree = "<group>"; };
+		9421FEBD187A7FAA00260FA8 /* KDGoalBarPercentLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDGoalBarPercentLayer.m; sourceTree = "<group>"; };
+		9421FEC0187A906400260FA8 /* music.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = music.aac; sourceTree = "<group>"; };
 		94483371185449F300584592 /* Wakeup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wakeup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94483374185449F300584592 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94483376185449F300584592 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -261,6 +275,9 @@
 		2794D60018584ADE003FA866 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				9405352418727632008317B3 /* CustomTimePicker */,
+				940535231872761F008317B3 /* AMBlurView */,
+				9421FEB9187A7F8100260FA8 /* CircleUI */,
 				2794D60418585302003FA866 /* WeatherView.h */,
 				2794D60518585302003FA866 /* WeatherView.m */,
 				2794D638185B1A6F003FA866 /* SwipeButton.h */,
@@ -289,6 +306,28 @@
 				9405352618727652008317B3 /* IZValueSelectorView.m */,
 			);
 			name = CustomTimePicker;
+			sourceTree = "<group>";
+		};
+		9421FEB2187A542500260FA8 /* ShakeUtils */ = {
+			isa = PBXGroup;
+			children = (
+				9421FEB3187A547800260FA8 /* CPMotionRecognizingWindow.h */,
+				9421FEB4187A547800260FA8 /* CPMotionRecognizingWindow.m */,
+				9421FEB5187A547800260FA8 /* UIResponder+MotionRecognizers.h */,
+				9421FEB6187A547800260FA8 /* UIResponder+MotionRecognizers.m */,
+			);
+			name = ShakeUtils;
+			sourceTree = "<group>";
+		};
+		9421FEB9187A7F8100260FA8 /* CircleUI */ = {
+			isa = PBXGroup;
+			children = (
+				9421FEBA187A7FAA00260FA8 /* KDGoalBar.h */,
+				9421FEBB187A7FAA00260FA8 /* KDGoalBar.m */,
+				9421FEBC187A7FAA00260FA8 /* KDGoalBarPercentLayer.h */,
+				9421FEBD187A7FAA00260FA8 /* KDGoalBarPercentLayer.m */,
+			);
+			name = CircleUI;
 			sourceTree = "<group>";
 		};
 		94483368185449F300584592 = {
@@ -345,6 +384,7 @@
 		9448337B185449F300584592 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9421FEC0187A906400260FA8 /* music.aac */,
 				2794D61D1859AFC3003FA866 /* 造字工房悦黑细体.otf */,
 				2794D61F1859AFDA003FA866 /* Roboto-Thin.ttf */,
 				13F8098D1858BD07008C9080 /* city.plist */,
@@ -395,6 +435,7 @@
 		944833AA18544C7300584592 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				9421FEB2187A542500260FA8 /* ShakeUtils */,
 				944833B218544CDE00584592 /* Config.h */,
 				944833B318544CDE00584592 /* Config.m */,
 				944833AD18544CC800584592 /* NSString+ForJava.h */,
@@ -408,8 +449,6 @@
 		944833B818544D4D00584592 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				9405352418727632008317B3 /* CustomTimePicker */,
-				940535231872761F008317B3 /* AMBlurView */,
 				9489F9EF186C6A62002ED639 /* WeChat */,
 				13F809C01858CD67008C9080 /* Reachability */,
 				13F809AC1858C989008C9080 /* JSON-Kit */,
@@ -524,6 +563,7 @@
 				2794D61E1859AFC4003FA866 /* 造字工房悦黑细体.otf in Resources */,
 				2794D6201859AFDA003FA866 /* Roboto-Thin.ttf in Resources */,
 				9448337F185449F300584592 /* InfoPlist.strings in Resources */,
+				9421FEC1187A906400260FA8 /* music.aac in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,10 +586,13 @@
 				13F809BE1858C989008C9080 /* SBJsonParser.m in Sources */,
 				13F809A51858C158008C9080 /* ASIDataCompressor.m in Sources */,
 				944833B418544CDE00584592 /* Config.m in Sources */,
+				9421FEB7187A547800260FA8 /* CPMotionRecognizingWindow.m in Sources */,
 				940053911861E17600940BBB /* Utils.m in Sources */,
+				9421FEBF187A7FAA00260FA8 /* KDGoalBarPercentLayer.m in Sources */,
 				13F809BA1858C989008C9080 /* NSObject+SBJSON.m in Sources */,
 				940535221871CCA2008317B3 /* AMBlurView.m in Sources */,
 				13F809A81858C158008C9080 /* ASIFormDataRequest.m in Sources */,
+				9421FEBE187A7FAA00260FA8 /* KDGoalBar.m in Sources */,
 				9400538B1861D8BA00940BBB /* BaseViewController.m in Sources */,
 				940053881861D4CD00940BBB /* SettingViewController.m in Sources */,
 				13F809A71858C158008C9080 /* ASIDownloadCache.m in Sources */,
@@ -561,6 +604,7 @@
 				13F809AB1858C158008C9080 /* ASINetworkQueue.m in Sources */,
 				13F809BB1858C989008C9080 /* NSString+SBJSON.m in Sources */,
 				2794D61A185966D6003FA866 /* CityManager.m in Sources */,
+				9421FEB8187A547800260FA8 /* UIResponder+MotionRecognizers.m in Sources */,
 				2794D6341859D519003FA866 /* DoubleColorView.m in Sources */,
 				9489F9F6186D0AAC002ED639 /* ShareViewController.m in Sources */,
 				94483385185449F300584592 /* AppDelegate.m in Sources */,

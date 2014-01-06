@@ -45,7 +45,7 @@
     [[UILabel alloc] initWithFrame:
      CGRectMake(40, _weatherView.frame.origin.y + _weatherView.frame.size.height + 10, 320, 120)];
 
-    [_timeLabel setFont:[UIFont fontWithName:@"Roboto-Thin" size:100]];
+    [_timeLabel setFont:[UIFont fontWithName:@"Roboto-Thin" size:90]];
     [_timeLabel setBackgroundColor:[UIColor clearColor]];
     [_timeLabel setTextAlignment:NSTextAlignmentLeft];
     [_timeLabel setTextColor:[UIColor whiteColor]];

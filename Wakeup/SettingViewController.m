@@ -30,6 +30,9 @@
     
     IZValueSelectorView *hourPicker;
     IZValueSelectorView *minPicker;
+    
+    NSString *hour;
+    NSString *min;
 }
 @end
 
@@ -39,6 +42,10 @@
 {
     self = [super init];
     if (self) {
+        
+        hour = @"05";
+        min = @"00";
+        
         IS_MUSIC_ITEM = YES;
         
         musicArray = @[@"震动",@"经典铃声",@"舒缓音乐"];
@@ -122,7 +129,6 @@
     minPicker.backgroundColor = [Utils colorWithHexString:MAIN_COLOR];//@"#fde756"
     [primaryView addSubview:minPicker];
     
-    
     //clock repeat setting
     
     
@@ -159,11 +165,28 @@
     //complete clock setting
     
     //TODO test shake UI
-//    ShakeViewController *shakeViewCtrl = [[ShakeViewController alloc] init];
-//    [self presentViewController:shakeViewCtrl animated:YES completion:nil];
+    ShakeViewController *shakeViewCtrl = [[ShakeViewController alloc] init];
+    [self presentViewController:shakeViewCtrl animated:YES completion:nil];
     
-    ShareViewController *share = [[ShareViewController alloc] init];
-    [self presentViewController:share animated:YES completion:nil];
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm:ss"];
+    //触发通知的时间
+    NSString *time = [[[[hour stringByAppendingString:@":"] stringByAppendingString:min] stringByAppendingString:@":"] stringByAppendingString:@"00"];
+    
+    NSLog(@"Time:%@",time);
+    NSDate *now = [formatter dateFromString:time];
+    notification.fireDate = now;
+    //时区
+    notification.timeZone = [NSTimeZone defaultTimeZone];
+    //通知重复提示的单位，可以是天、周、月
+    notification.repeatInterval = NSDayCalendarUnit;
+    //通知内容
+    notification.alertBody = @"这是一个新的通知";
+    //通知被触发时播放的声音
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    //执行通知注册
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     
 //    [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -185,7 +208,7 @@
     if (shake == nil) {
         shake = @"";
     }
-    [self openItemLayer:[@"摇力等级：" stringByAppendingString:shake]];
+    [self openItemLayer:[@"摇力强度：" stringByAppendingString:shake]];
 }
 
 #pragma IZValueSelector dataSource
@@ -223,7 +246,7 @@
 //    label.textColor = [Utils colorWithHexString:@"#c5c5c5"];
     label.textColor = [UIColor whiteColor];
     label.backgroundColor = [Utils colorWithHexString:MAIN_COLOR];
-    label.font = [UIFont boldSystemFontOfSize:55.0];
+    label.font = [UIFont fontWithName:@"Roboto-Thin" size:60.0];
     
     return label;
 }
@@ -243,8 +266,10 @@
 - (void)selector:(IZValueSelectorView *)valueSelector didSelectRowAtIndex:(NSInteger)index {
     if (valueSelector == hourPicker) {
         NSLog(@"hour:%@",[hourArray objectAtIndex:index]);
+        hour = [hourArray objectAtIndex:index];
     }else{
         NSLog(@"min:%@",[minArray objectAtIndex:index]);
+        min = [minArray objectAtIndex:index];
     }
     
 }

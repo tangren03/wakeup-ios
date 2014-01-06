@@ -40,8 +40,6 @@
     [super layoutSubviews];
 }
 
-
-
 - (void)createContentTableView {
 
     UIImageView *selectionImageView = [[UIImageView alloc] init];

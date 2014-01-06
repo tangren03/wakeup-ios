@@ -8,13 +8,14 @@
 
 #import "AppDelegate.h"
 #import "StartViewController.h"
+#import "CPMotionRecognizingWindow.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = [[CPMotionRecognizingWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     StartViewController *startViewController = [[StartViewController alloc] init];
     
 //    self.navController = [[UINavigationController alloc] initWithRootViewController:startViewController];
@@ -27,7 +28,13 @@
     //Register weixin id
     [WXApi registerApp:@"wxa3b3bc276f01e94a"];
     
+    NSLog(@"didReceiveLocalNotification");
     return YES;
+}
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    NSLog(@"didFinishLaunchingWithOptions");
 }
 
 #pragma WX Delegate

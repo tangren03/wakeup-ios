@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "AppDelegate.h"
 
 @interface ShakeViewController : BaseViewController
 

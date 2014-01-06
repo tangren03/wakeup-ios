@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
-#import "ShareViewController.h"
 #import "IZValueSelectorView.h"
 
 @interface SettingViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,IZValueSelectorViewDataSource,IZValueSelectorViewDelegate>{
@@ -20,4 +19,5 @@
 @property(nonatomic,strong) UITextField * tfTitle;
 @property(nonatomic,strong) UIButton * btnChooseMusic;
 @property(nonatomic,strong) UIButton * btnChooseShake;
+    
 @end
