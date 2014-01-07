@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "StartViewController.h"
 #import "CPMotionRecognizingWindow.h"
+#import "ShakeViewController.h"
 
 @implementation AppDelegate
 
@@ -28,13 +29,22 @@
     //Register weixin id
     [WXApi registerApp:@"wxa3b3bc276f01e94a"];
     
-    NSLog(@"didReceiveLocalNotification");
+    NSLog(@"didFinishLaunchingWithOptions");
     return YES;
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    NSLog(@"didFinishLaunchingWithOptions");
+    NSLog(@"didReceiveLocalNotification");
+    NSString *isClockOpen = [Config propertyForkey:PRO_IS_CLOCK_OPEN];
+    if (isClockOpen != nil && [isClockOpen isEqualToString:PRO_YES]) {
+        NSLog(@"is open");
+
+        ShakeViewController *shakeViewCtrl = [[ShakeViewController alloc] init];
+        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:shakeViewCtrl];
+        navi.navigationBarHidden = YES;
+        [self.window.rootViewController presentViewController:navi animated:YES completion:nil];
+    }
 }
 
 #pragma WX Delegate

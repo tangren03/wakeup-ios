@@ -48,7 +48,7 @@
         
         IS_MUSIC_ITEM = YES;
         
-        musicArray = @[@"震动",@"经典铃声",@"舒缓音乐"];
+        musicArray = @[@"清晨脆音",@"晨曦阳光",@"律动朝霞"];
         shakeArray = @[@"容易",@"中等",@"困难"];
         hourArray = @[@"05",@"06",@"07",@"08",@"09"];
         minArray = [NSMutableArray array];
@@ -106,7 +106,13 @@
     ivLine.image = imgLine;
     [primaryView addSubview:ivLine];
     _tfTitle = [[UITextField alloc] initWithFrame:CGRectMake(60, 20, 200, 25)];
-    _tfTitle.text = @"为了梦想而起床！";
+    
+    NSString *saveClockName = [Config propertyForkey:PRO_CLOCK_NAME];
+    if (saveClockName == nil) {
+        _tfTitle.text = @"为了梦想，起床吧少年！";
+    }else{
+        _tfTitle.text = saveClockName;
+    }
     _tfTitle.textColor = [UIColor whiteColor];
     _tfTitle.textAlignment = NSTextAlignmentCenter;
     [primaryView addSubview:_tfTitle];
@@ -162,33 +168,58 @@
 
 -(void)yesButtonClicked
 {
-    //complete clock setting
-    
     //TODO test shake UI
-    ShakeViewController *shakeViewCtrl = [[ShakeViewController alloc] init];
-    [self presentViewController:shakeViewCtrl animated:YES completion:nil];
+//    ShakeViewController *shakeViewCtrl = [[ShakeViewController alloc] init];
+//    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:shakeViewCtrl];
+//    navi.navigationBarHidden = YES;
+//    [self presentViewController:navi animated:YES completion:nil];
+
+    //save clock name
+    [Config saveProperty:_tfTitle.text forKey:PRO_CLOCK_NAME];
+    
+    //tag clock status
+    [Config saveProperty:PRO_YES forKey:PRO_IS_CLOCK_OPEN];
+    
+    //cancel all notifications
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
     UILocalNotification *notification = [[UILocalNotification alloc] init];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"HH:mm:ss"];
+    
     //触发通知的时间
     NSString *time = [[[[hour stringByAppendingString:@":"] stringByAppendingString:min] stringByAppendingString:@":"] stringByAppendingString:@"00"];
     
     NSLog(@"Time:%@",time);
+    time = @"22:10:00";
     NSDate *now = [formatter dateFromString:time];
     notification.fireDate = now;
+    
     //时区
     notification.timeZone = [NSTimeZone defaultTimeZone];
+    
     //通知重复提示的单位，可以是天、周、月
     notification.repeatInterval = NSDayCalendarUnit;
+    
     //通知内容
-    notification.alertBody = @"这是一个新的通知";
+    notification.alertBody = _tfTitle.text;
+    notification.alertAction = @"起床";
+    
     //通知被触发时播放的声音
-    notification.soundName = UILocalNotificationDefaultSoundName;
+    NSString *music = [Config propertyForkey:PRO_MUSIC];
+    if ([music isEqualToString:@"清晨脆音"]) {
+        notification.soundName = @"music.aac";
+    }else if([music isEqualToString:@"晨曦阳光"]){
+        notification.soundName = UILocalNotificationDefaultSoundName;
+    }else{
+        notification.soundName = UILocalNotificationDefaultSoundName;
+    }
+    
+    
     //执行通知注册
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)chooseMusicButtonClicked
@@ -346,7 +377,12 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    if (IS_MUSIC_ITEM) {
+        return musicArray.count;
+    }else{
+        return shakeArray.count;
+    }
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -65,6 +65,8 @@
 		944833B418544CDE00584592 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 944833B318544CDE00584592 /* Config.m */; };
 		9489F9F3186C6A77002ED639 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9489F9F0186C6A77002ED639 /* libWeChatSDK.a */; };
 		9489F9F6186D0AAC002ED639 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9489F9F5186D0AAC002ED639 /* ShareViewController.m */; };
+		94EFC397187C36E400457310 /* TTCounterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EFC396187C36E400457310 /* TTCounterLabel.m */; };
+		94EFC39A187C373500457310 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EFC399187C373500457310 /* TTTAttributedLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +186,10 @@
 		9489F9F2186C6A77002ED639 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		9489F9F4186D0AAC002ED639 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		9489F9F5186D0AAC002ED639 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		94EFC395187C36E400457310 /* TTCounterLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCounterLabel.h; sourceTree = "<group>"; };
+		94EFC396187C36E400457310 /* TTCounterLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCounterLabel.m; sourceTree = "<group>"; };
+		94EFC398187C373500457310 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
+		94EFC399187C373500457310 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +281,7 @@
 		2794D60018584ADE003FA866 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				94EFC394187C36D500457310 /* TimeLabel */,
 				9405352418727632008317B3 /* CustomTimePicker */,
 				940535231872761F008317B3 /* AMBlurView */,
 				9421FEB9187A7F8100260FA8 /* CircleUI */,
@@ -478,6 +485,17 @@
 			name = WeChat;
 			sourceTree = "<group>";
 		};
+		94EFC394187C36D500457310 /* TimeLabel */ = {
+			isa = PBXGroup;
+			children = (
+				94EFC398187C373500457310 /* TTTAttributedLabel.h */,
+				94EFC399187C373500457310 /* TTTAttributedLabel.m */,
+				94EFC395187C36E400457310 /* TTCounterLabel.h */,
+				94EFC396187C36E400457310 /* TTCounterLabel.m */,
+			);
+			name = TimeLabel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -597,6 +615,7 @@
 				940053881861D4CD00940BBB /* SettingViewController.m in Sources */,
 				13F809A71858C158008C9080 /* ASIDownloadCache.m in Sources */,
 				2794D60618585302003FA866 /* WeatherView.m in Sources */,
+				94EFC397187C36E400457310 /* TTCounterLabel.m in Sources */,
 				944833AF18544CC800584592 /* NSString+ForJava.m in Sources */,
 				2794D63A185B1A6F003FA866 /* SwipeButton.m in Sources */,
 				2794D5FF18584975003FA866 /* StartViewController.m in Sources */,
@@ -619,6 +638,7 @@
 				13F809BD1858C989008C9080 /* SBJsonBase.m in Sources */,
 				94483381185449F300584592 /* main.m in Sources */,
 				2794D60918585E4D003FA866 /* UIScreenEx.mm in Sources */,
+				94EFC39A187C373500457310 /* TTTAttributedLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

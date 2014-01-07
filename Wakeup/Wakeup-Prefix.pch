@@ -26,3 +26,9 @@
 
 #define PRO_MUSIC @"PRO_MUSIC"
 #define PRO_SHAKE @"PRO_SHAKE"
+#define PRO_CLOCK_NAME @"PRO_CLOCK_NAME"
+#define PRO_IS_CLOCK_OPEN @"PRO_IS_CLOCK_OPEN"
+
+#define PRO_YES @"PRO_YES"
+#define PRO_NO @"PRO_YES"
+

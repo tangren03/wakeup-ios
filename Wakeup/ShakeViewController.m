@@ -60,7 +60,7 @@
     lb_time.textColor = [UIColor whiteColor];
     lb_time.textAlignment = NSTextAlignmentCenter;
     lb_time.font = [UIFont systemFontOfSize:18.0];
-    lb_time.text = @"起床用时：00:46.0";
+    lb_time.text = [Config propertyForkey:PRO_CLOCK_NAME];
     [self.view addSubview:lb_time];
 }
 
@@ -70,14 +70,10 @@
     if (percent == 100 || percent == 99) {
         percent = 0;
     
-        ShareViewController *shareViewCtrl = [[ShareViewController alloc] init];
-        [self presentViewController:shareViewCtrl animated:YES completion:nil];
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
         
-//        [self dismissViewControllerAnimated:YES completion:^{
-//            AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//            ShareViewController *shareViewCtrl = [[ShareViewController alloc] init];
-//            [app.window.rootViewController presentViewController:shareViewCtrl animated:YES completion:nil];
-//        }];
+        ShareViewController *shareViewCtrl = [[ShareViewController alloc] init];
+        [self.navigationController pushViewController:shareViewCtrl animated:YES];
         
     }else{
         percent += percentStep;

@@ -7,6 +7,7 @@
 //
 
 #import "ShareViewController.h"
+#import "Config.h"
 
 @interface ShareViewController ()
 
@@ -59,18 +60,25 @@
     [[UILabel alloc] initWithFrame:
      CGRectMake(0, 50 , viewFrame.size.width, 60)];
     timeLabel.textAlignment = NSTextAlignmentCenter;
-    [timeLabel setFont:[UIFont fontWithName:@"Roboto-Thin" size:75]];
+    [timeLabel setFont:[UIFont fontWithName:@"Roboto-Thin" size:80]];
     [timeLabel setBackgroundColor:[UIColor clearColor]];
     [timeLabel setTextColor:[UIColor whiteColor]];
     [timeLabel setNumberOfLines:1];
-    timeLabel.text = @"06:30";
     [self.view addSubview:timeLabel];
+    
+    //set current time
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+    timeLabel.text = currentDateStr;
+
     
     _timeCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 120, viewFrame.size.width, 40)];
     _timeCountLabel.textAlignment = NSTextAlignmentCenter;
     [_timeCountLabel setTextColor:[UIColor whiteColor]];
     [_timeCountLabel setBackgroundColor:[UIColor clearColor]];
-    _timeCountLabel.text = @"本次起床用时：00:12.0";
+//    _timeCountLabel.text = @"本次起床用时：00:12.0";
+    _timeCountLabel.text = [Config propertyForkey:PRO_CLOCK_NAME];
     [self.view addSubview:_timeCountLabel];
 }
 
