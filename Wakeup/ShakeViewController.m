@@ -27,13 +27,18 @@
 {
     if (self = [super init]) {
         NSString *shakeLevel = [Config propertyForkey:PRO_SHAKE];
-        if ([shakeLevel isEqualToString:@"容易"]) {
-            percentStep = 33;
-        }else if([shakeLevel isEqualToString:@"中等"]){
+        if (shakeLevel == nil) {
             percentStep = 20;
         }else{
-            percentStep = 10;
+            if ([shakeLevel isEqualToString:@"容易"]) {
+                percentStep = 33;
+            }else if([shakeLevel isEqualToString:@"中等"]){
+                percentStep = 20;
+            }else{
+                percentStep = 10;
+            }
         }
+        
         percent = 0;
     }
     return self;

@@ -18,8 +18,8 @@
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
 
-        _closeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        _modifyButton = [SwipeButton buttonWithType:UIButtonTypeRoundedRect];
+        _closeButton = [[UIButton alloc] init];
+        _modifyButton = [[SwipeButton alloc] initWithFrame:CGRectZero];
         _leftNotifyImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         
         [self addSubview:_leftNotifyImageView];

@@ -21,6 +21,8 @@
 #import "RNTimer.h"
 #import "SBJsonParser.h"
 
+#import "ShakeViewController.h"
+
 #define WEATHER_VIEW_TOP_MARGIN  30
 
 @interface StartViewController ()
@@ -84,6 +86,20 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 
+    //如果闹钟已设置则不显示“新建闹钟按钮”
+    NSString *isClockOpen = [Config propertyForkey:PRO_IS_CLOCK_OPEN];
+    if (isClockOpen != nil && [isClockOpen isEqualToString:PRO_YES]) {
+//        [_addClockButton removeFromSuperview];
+        CGRect rect = _doubleColorView.frame;
+        rect.origin.y -= _addClockButton.frame.size.height;
+        _doubleColorView.frame = rect;
+        _doubleColorView.hidden = NO;
+        _addClockButton.hidden = YES;
+    }else{
+        _doubleColorView.hidden = YES;
+        _addClockButton.hidden = NO;
+    }
+
     [self updateNow];
 
     __weak id weakSelf = self;
@@ -92,6 +108,12 @@
                                       block:^{
                                           [weakSelf updateNow];
                                       }];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
 }
 
 - (void)updateNow {
@@ -104,8 +126,8 @@
 - (void)startLocation {
     _locManager = [[CLLocationManager alloc] init];
     [_locManager setDelegate:self];
-    [_locManager setDesiredAccuracy:kCLLocationAccuracyBest];
-    [_locManager setDistanceFilter:5];
+    [_locManager setDesiredAccuracy:500];
+    [_locManager setDistanceFilter:1000];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH"];
@@ -146,7 +168,7 @@
                         "/api/geocode/json?latlng=%f,%f"
                         "&language=zh-CN&sensor=true",
                         loc.latitude, fabs(loc.longitude)];
-    NSLog(@"lat,lng: %@", urlCity);
+//    NSLog(@"lat,lng: %@", urlCity);
 
     __block ASIHTTPRequest *reqCity =
     [ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlCity]];
@@ -157,6 +179,7 @@
     [weakReqCity setCompletionBlock:^{
         SBJsonParser* jsonParser = [[SBJsonParser alloc] init];
         NSDictionary* jsonDic = [jsonParser objectWithString:weakReqCity.responseString];
+//        NSLog(@"%@", jsonDic);
         
         NSString *cityName = nil;
         @try {
@@ -171,6 +194,21 @@
                                                   waitUntilDone:YES];
         } @finally {
             NSLog(@"city name: %@", cityName);
+            
+            //当正常滑动解锁时，如果是闹钟触发则弹出摇动关闭界面
+            NSString *setTime = [[[Config propertyForkey:PRO_HOUR] stringByAppendingString:@":"] stringByAppendingString:[Config propertyForkey:PRO_MIN]];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"HH:mm"];
+            NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+            if ([currentDateStr isEqualToString:setTime]) {
+                NSString *isClockOpen = [Config propertyForkey:PRO_IS_CLOCK_OPEN];
+                if (isClockOpen != nil && [isClockOpen isEqualToString:PRO_YES]) {
+                    ShakeViewController *shakeViewCtrl = [[ShakeViewController alloc] init];
+                    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:shakeViewCtrl];
+                    navi.navigationBarHidden = YES;
+                    [self presentViewController:navi animated:YES completion:nil];
+                }
+            }
         }
         
         if (cityName == nil) return;

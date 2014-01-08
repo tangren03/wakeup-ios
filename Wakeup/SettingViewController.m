@@ -194,11 +194,11 @@
 -(void)yesButtonClicked
 {
     //TODO test shake UI
-    ShakeViewController *shakeViewCtrl = [[ShakeViewController alloc] init];
-    
-    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:shakeViewCtrl];
-    navi.navigationBarHidden = YES;
-    [self presentViewController:navi animated:YES completion:nil];
+//    ShakeViewController *shakeViewCtrl = [[ShakeViewController alloc] init];
+//    
+//    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:shakeViewCtrl];
+//    navi.navigationBarHidden = YES;
+//    [self presentViewController:navi animated:YES completion:nil];
 
     [self hiddenKeyboard];
     
@@ -222,7 +222,7 @@
     [Config saveProperty:min forKey:PRO_MIN];
     
     NSLog(@"Time:%@",time);
-    time = @"11:49:00";
+//    time = @"14:40:00";
     NSDate *now = [formatter dateFromString:time];
     notification.fireDate = now;
     
@@ -238,13 +238,18 @@
     
     //通知被触发时播放的声音
     NSString *music = [Config propertyForkey:PRO_MUSIC];
-    if ([music isEqualToString:@"清晨脆音"]) {
-        notification.soundName = @"music.aac";
-    }else if([music isEqualToString:@"晨曦阳光"]){
-        notification.soundName = UILocalNotificationDefaultSoundName;
+    if (music != nil) {
+        if ([music isEqualToString:@"清晨脆音"]) {
+            notification.soundName = @"music.aac";
+        }else if([music isEqualToString:@"晨曦阳光"]){
+            notification.soundName = UILocalNotificationDefaultSoundName;
+        }else{
+            notification.soundName = UILocalNotificationDefaultSoundName;
+        }
     }else{
-        notification.soundName = UILocalNotificationDefaultSoundName;
+        notification.soundName = @"music.aac";
     }
+    
     
     
     //执行通知注册
