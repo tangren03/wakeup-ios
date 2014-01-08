@@ -23,9 +23,7 @@
 - (CGFloat)rowWidthInSelector:(IZValueSelectorView *)valueSelector;
 @end
 
-
-
-@interface IZValueSelectorView : UIView <UITableViewDataSource,UITableViewDelegate>
+@interface IZValueSelectorView : UIView<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,assign) IBOutlet id <IZValueSelectorViewDelegate> delegate;
 @property (nonatomic,assign) IBOutlet id <IZValueSelectorViewDataSource> dataSource;

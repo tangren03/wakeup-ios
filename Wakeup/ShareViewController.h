@@ -11,7 +11,8 @@
 #import "WXApiObject.h"
 #import "WXApi.h"
 
-@interface ShareViewController : BaseViewController
+@interface ShareViewController : BaseViewController<WXApiDelegate>
 
 @property(nonatomic,strong) UILabel *timeCountLabel;
+
 @end

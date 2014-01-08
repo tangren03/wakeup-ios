@@ -85,13 +85,14 @@
 //分享微信朋友圈
 -(void)sendToWeChatButtonClicked
 {
-//    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-//    req.text = @"test from wakeup demo";
-//    req.bText = YES;
-//    req.scene = WXSceneTimeline;
-//    
-//    [WXApi sendReq:req];
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    req.text = @"我都起来了，你呢！赶紧起床吧！";
+    req.bText = YES;
+    req.scene = WXSceneTimeline;
     
+    [WXApi sendReq:req];
+    
+    /*
     WXMediaMessage *message = [WXMediaMessage message];
     [message setThumbImage:[UIImage imageNamed:@"bg_purple_iph5.png"]];
     
@@ -107,11 +108,16 @@
     req.scene = WXSceneTimeline;
     
     [WXApi sendReq:req];
+     */
+
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 //挑战微信好友
 -(void)challengeFriendButtonClicked
 {
+    /*
     WXMediaMessage *message = [WXMediaMessage message];
     message.title = @"起床闹钟";
     message.description = @"为了梦想，起床吧，少年！";
@@ -128,6 +134,15 @@
     req.scene = WXSceneSession;
     
     [WXApi sendReq:req];
+     */
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    req.text = @"我都起来了，你呢！赶紧起床吧！";
+    req.bText = YES;
+    req.scene = WXSceneSession;
+
+    [WXApi sendReq:req];
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 //跳过

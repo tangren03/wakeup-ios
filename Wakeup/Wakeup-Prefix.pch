@@ -32,3 +32,6 @@
 #define PRO_YES @"PRO_YES"
 #define PRO_NO @"PRO_YES"
 
+#define PRO_HOUR @"PRO_HOUR"
+#define PRO_MIN @"PRO_MIN"
+

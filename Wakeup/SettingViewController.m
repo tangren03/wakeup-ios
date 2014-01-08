@@ -33,6 +33,8 @@
     
     NSString *hour;
     NSString *min;
+    
+    UILabel *timeLabel;
 }
 @end
 
@@ -42,7 +44,6 @@
 {
     self = [super init];
     if (self) {
-        
         hour = @"05";
         min = @"00";
         
@@ -59,6 +60,7 @@
                 [minArray addObject:[NSString stringWithFormat:@"%d",i]];
             }
         }
+        
     }
     return self;
 }
@@ -105,7 +107,7 @@
     UIImageView *ivLine = [[UIImageView alloc] initWithFrame:CGRectMake(60, 45, 200, imgLine.size.height)];
     ivLine.image = imgLine;
     [primaryView addSubview:ivLine];
-    _tfTitle = [[UITextField alloc] initWithFrame:CGRectMake(60, 20, 200, 25)];
+    _tfTitle = [[UITextField alloc] initWithFrame:CGRectMake(60, 20, 200, 30)];
     
     NSString *saveClockName = [Config propertyForkey:PRO_CLOCK_NAME];
     if (saveClockName == nil) {
@@ -115,6 +117,7 @@
     }
     _tfTitle.textColor = [UIColor whiteColor];
     _tfTitle.textAlignment = NSTextAlignmentCenter;
+    _tfTitle.font = [UIFont systemFontOfSize:16.0];
     [primaryView addSubview:_tfTitle];
     
     
@@ -122,6 +125,7 @@
     hourPicker = [[IZValueSelectorView alloc] initWithFrame:CGRectMake(35, 75, 120, 200)];
     hourPicker.delegate = self;
     hourPicker.dataSource = self;
+
     hourPicker.shouldBeTransparent = YES;
     hourPicker.horizontalScrolling = NO;
     hourPicker.backgroundColor = [Utils colorWithHexString:MAIN_COLOR];
@@ -137,7 +141,23 @@
     
     //clock repeat setting
     
+    //time
+    timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 295, 320, 30)];
+    timeLabel.textColor = [UIColor whiteColor];
+    timeLabel.textAlignment = NSTextAlignmentCenter;
+    timeLabel.font = [UIFont systemFontOfSize:16.0];
+    [primaryView addSubview:timeLabel];
     
+    NSString *setHour = [Config propertyForkey:PRO_HOUR];
+    NSString *setMin = [Config propertyForkey:PRO_MIN];
+    
+    NSString *setTimeText = @"早上 ";
+    if (setHour == nil || setMin == nil) {
+        setTimeText = @"早上 05:00 叫你起床";
+    }else{
+        setTimeText = [[[[setTimeText stringByAppendingString:setHour] stringByAppendingString:@":"] stringByAppendingString:setMin] stringByAppendingString:@" 叫你起床"];
+    }
+    timeLabel.text = setTimeText;
     
     //choose music button
     UIImage *imgChooseMusic = [UIImage imageNamed:@"musicchoice"];
@@ -158,6 +178,11 @@
     [primaryView addSubview:_btnChooseShake];
     
     
+    //tap action for close keyboard
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc]
+                                             initWithTarget:self action:@selector(hiddenKeyboard)];
+//    tapRecognizer.cancelsTouchesInView = NO;
+    [primaryView addGestureRecognizer:tapRecognizer];
 }
 
 #pragma -- Button click event
@@ -169,11 +194,14 @@
 -(void)yesButtonClicked
 {
     //TODO test shake UI
-//    ShakeViewController *shakeViewCtrl = [[ShakeViewController alloc] init];
-//    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:shakeViewCtrl];
-//    navi.navigationBarHidden = YES;
-//    [self presentViewController:navi animated:YES completion:nil];
+    ShakeViewController *shakeViewCtrl = [[ShakeViewController alloc] init];
+    
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:shakeViewCtrl];
+    navi.navigationBarHidden = YES;
+    [self presentViewController:navi animated:YES completion:nil];
 
+    [self hiddenKeyboard];
+    
     //save clock name
     [Config saveProperty:_tfTitle.text forKey:PRO_CLOCK_NAME];
     
@@ -190,8 +218,11 @@
     //触发通知的时间
     NSString *time = [[[[hour stringByAppendingString:@":"] stringByAppendingString:min] stringByAppendingString:@":"] stringByAppendingString:@"00"];
     
+    [Config saveProperty:hour forKey:PRO_HOUR];
+    [Config saveProperty:min forKey:PRO_MIN];
+    
     NSLog(@"Time:%@",time);
-    time = @"22:10:00";
+    time = @"11:49:00";
     NSDate *now = [formatter dateFromString:time];
     notification.fireDate = now;
     
@@ -289,7 +320,7 @@
     //y will be the origin of your image
     //width and height will be the same as in your selector image
     
-    return CGRectMake(0.0, minPicker.frame.size.height/2 - 35.0, 120.0, 70.0);
+    return CGRectMake(0.0, minPicker.frame.size.height / 2 - 35.0, 120.0, 70.0);
     
 }
 
@@ -303,6 +334,9 @@
         min = [minArray objectAtIndex:index];
     }
     
+    //update time
+    timeLabel.text = [[[[@"早上 " stringByAppendingString:hour] stringByAppendingString:@":"] stringByAppendingString:min] stringByAppendingString:@" 叫你起床"];
+
 }
 
 #pragma mark - Layer operation
@@ -413,7 +447,7 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.textLabel.font = [UIFont boldSystemFontOfSize:20.0];
     cell.textLabel.textColor = [UIColor whiteColor];
-    
+    NSLog(@"111111");
     NSInteger row = indexPath.row;
     NSString *selectedItem;
     NSString *title;
@@ -436,6 +470,11 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 35.0;
+}
+
+-(void)hiddenKeyboard
+{
+    [_tfTitle resignFirstResponder];
 }
 
 @end

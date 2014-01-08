@@ -24,12 +24,17 @@
 //    [self.window addSubview: self.navController.view];
     self.window.rootViewController = startViewController;
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    sleep(1);
+    
     [self.window makeKeyAndVisible];
     
     //Register weixin id
     [WXApi registerApp:@"wxa3b3bc276f01e94a"];
     
     NSLog(@"didFinishLaunchingWithOptions");
+    
+    
     return YES;
 }
 
@@ -47,6 +52,7 @@
     }
 }
 
+
 #pragma WX Delegate
 -(void) onResp:(BaseResp*)resp
 {
@@ -55,6 +61,8 @@
         NSString *strMsg;
         if (resp.errCode == 0) {
             strMsg = @"恭喜，发送成功！";
+        }else{
+            strMsg = @"发送失败";
         }
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
